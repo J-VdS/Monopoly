@@ -5,7 +5,7 @@
 {'type':'belast', 'naam':'Inkomsten belasting', 'loc':(10,6),'prijs':60, 'huur':[], 'status':-1}
 {'type':'station','naam':'Noord station', 'loc':(10,5)}
 {'type':'straat', 'naam':'Steenstraat-Brugge', 'loc':(10,4), 'kleur':'#CCFFFF', 'prijs':100, 'huur':[], 'status':-1}
-{'type':'kans', 'naam':'Kans', 'loc':(10,3)}
+{'type':'kans', 'naam':'Kans', 'loc':(10,3), 'afb':1}
 {'type':'straat', 'naam':'Place du Monument-Spa', 'loc':(10,2), 'kleur':'#CCFFFF','prijs':100}
 {'type':'straat', 'naam':'Kapellestraat-Oostende','loc':(10,1), 'kleur':'#CCFFFF'}
 {'type':'gevang', 'naam':'op bezoek', 'loc':(10,0)}
@@ -20,7 +20,7 @@
 {'type':'straat', 'naam':'Groenplaats-Antwerpen','loc':(1,0), 'kleur':'#ff9900'}
 {'type':'pot', 'naam':'Pot','loc':(0,0)}
 {'type':'straat', 'naam':'Rue St. Léonard-Liège','loc':(0,1), 'kleur':'#ff0000'}
-{'type':'kans', 'naam':'Kans','loc':(0,2)}
+{'type':'kans', 'naam':'Kans','loc':(0,2), 'afb':3}
 {'type':'straat', 'naam':'Lange Steenstraat-Kortrijk','loc':(0,3), 'kleur':'#ff0000'}
 {'type':'straat', 'naam':'Grand Place-Mons','loc':(0,4), 'kleur':'#ff0000'}
 {'type':'station','naam':'Buurtspoorwegen','loc':(0,5)}
@@ -34,7 +34,7 @@
 {'type':'alg', 'naam':'Algemeen Fonds','loc':(3,10)}
 {'type':'straat', 'naam':"Boulevard d'Avroy-Liège",'loc':(4,10), 'kleur':'#008000'}
 {'type':'station', 'naam':'Zuid Station','loc':(5,10)}
-{'type':'kans', 'naam':'Kans','loc':(6,10)}
+{'type':'kans', 'naam':'Kans','loc':(6,10), 'afb':4}
 {'type':'straat', 'naam':'Meir-Antwerpen','loc':(7,10), 'kleur':'#00008b'}
 {'type':'belast', 'naam':'Extra Belasting','loc':(8,10)}
 {'type':'straat', 'naam':'Nieuwstraat Brussel','loc':(9,10),'kleur':'#00008b'}

@@ -18,7 +18,7 @@ class veld:
         a = {}
         for file in glob.glob('*.gif'):
             a[file[1:-4]] = PhotoImage(file=file)
-            
+        #print(a)    
         return a
 
     def vakjes(self):
@@ -101,33 +101,46 @@ class veld:
         
         for straat in straatinfo:
             
-            
-            if straat['type'] != 'straat':
-                #print('skip')
-                continue
             (i,j) = straat['loc']
+            if straat['type'] == 'straat':
             
-            #todo herleid de 4 if statements naar 2 
-            if i == 0:
-                self.canvas.create_rectangle(37+j*55+(j//5), 72,\
-                                             92+j*55+(j//5), 92, \
-                                             fill=straat['kleur'])
+                #todo herleid de 4 if statements naar 2 
+                if i == 0:
+                    self.canvas.create_rectangle(37+j*55+(j//5), 72,\
+                                                 92+j*55+(j//5), 92, \
+                                                 fill=straat['kleur'])
                 
-            elif i == 10:
-                self.canvas.create_rectangle(37+j*55+(j//5), 588,\
-                                             92+j*55+(j//5), 608,\
-                                             fill=straat['kleur'])
-            elif j == 0:
-                self.canvas.create_rectangle(72, 37+i*55+(i//5),\
-                                             92, 92+i*55+(i//5), 
-                                             fill=straat['kleur'])
-            else:
-                #j == 10:
-                self.canvas.create_rectangle(588, 37+i*55+(i//5),\
-                                             608, 92+i*55+(i//5), 
-                                             fill=straat['kleur'])
-            
-            self.tk.update()
+                elif i == 10:
+                    self.canvas.create_rectangle(37+j*55+(j//5), 588,\
+                                                 92+j*55+(j//5), 608,\
+                                                 fill=straat['kleur'])
+                elif j == 0:
+                    self.canvas.create_rectangle(72, 37+i*55+(i//5),\
+                                                 92, 92+i*55+(i//5), 
+                                                 fill=straat['kleur'])
+                else:
+                    #j == 10:
+                    self.canvas.create_rectangle(588, 37+i*55+(i//5),\
+                                                 608, 92+i*55+(i//5), 
+                                                 fill=straat['kleur'])
+            elif straat['type'] == 'kans' or straat['type'] == 'alg':
+                #tekent kans afb
+                #Todo in 1 lijn mogelijk
+                if i == 0:
+                    self.canvas.create_image(37+j*55+(j//5), 10, anchor=NW, \
+                                        image=self.images[straat[type]+'3'])
+                elif i == 10:
+                    self.canvas.create_image(37+j*55+(j//5), 588, anchor=NW, \
+                                        image=self.images[straat[type]+'1'])
+                elif j == 0:
+                    self.canvas.create_image(10, 37+i*55+(i//5), anchor=NW, \
+                                        image=self.images[straat[type]+'2'])
+                else:
+                    #j == 10
+                    self.canvas.create_image(588, 37+i*55+(i//5), anchor=NW, \
+                                        image=self.images[straat[type]+'4']])
+        
+        self.tk.update()
         
         
         
@@ -147,5 +160,5 @@ if __name__ == '__main__':
     veld(tk)
     
     
-    time.sleep(10)
+    time.sleep(5)
     tk.destroy()
