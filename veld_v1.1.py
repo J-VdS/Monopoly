@@ -30,7 +30,7 @@ class veld:
                 
                 elif i%5 == 0 and j%5 == 0:
                     self.special(i, j)
-                #tekent de vakje van de straten (+algemeen fonds, kans en belast)
+                #tekent het vakje van de straten (+algemeen fonds, kans en belast)
                 elif i == 0 :
                     self.canvas.create_rectangle(37+j*55+(j//5), 10,\
                                                  92+j*55+(j//5), 92)
@@ -55,7 +55,6 @@ class veld:
     def special(self, i, j):
         #tekent de img's
         if (i,j) == (0,0):
-            print('hallo')
             self.canvas.create_image(10, 10, image=self.images['pot'], \
                                      anchor=NW)
         elif (i, j) == (0,5):
@@ -97,12 +96,39 @@ class veld:
         #leest txt (dit is een lijst) en slaat hem op in een variabele
         straatinfo = ''
         with open('straten.txt', 'r') as infile:
-            for line in [i.strip() for i in infile.readlines()]:
-                straatinfo += line
+            straatinfo = [eval(line) for line in [i.strip() for i in infile.readlines()]]
+                       
         
         for straat in straatinfo:
-            pass
+            
+            
+            if straat['type'] != 'straat':
+                #print('skip')
+                continue
+            (i,j) = straat['loc']
+            
+            #todo herleid de 4 if statements naar 2 
+            if i == 0:
+                self.canvas.create_rectangle(37+j*55+(j//5), 72,\
+                                             92+j*55+(j//5), 92, \
+                                             fill=straat['kleur'])
                 
+            elif i == 10:
+                self.canvas.create_rectangle(37+j*55+(j//5), 588,\
+                                             92+j*55+(j//5), 608,\
+                                             fill=straat['kleur'])
+            elif j == 0:
+                self.canvas.create_rectangle(72, 37+i*55+(i//5),\
+                                             92, 92+i*55+(i//5), 
+                                             fill=straat['kleur'])
+            else:
+                #j == 10:
+                self.canvas.create_rectangle(588, 37+i*55+(i//5),\
+                                             608, 92+i*55+(i//5), 
+                                             fill=straat['kleur'])
+            
+            self.tk.update()
+        
         
         
             
@@ -117,8 +143,9 @@ if __name__ == '__main__':
     tk.wm_attributes('-topmost', 1)
     tk.update()
     tk.geometry('700x700+0+0')
-
+    
     veld(tk)
-
-    time.sleep(5)
+    
+    
+    time.sleep(10)
     tk.destroy()
