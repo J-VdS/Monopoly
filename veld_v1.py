@@ -142,15 +142,6 @@ class veld:
                     self.canvas.create_image(588, 37+i*55+(i//5), anchor=NW, \
                                         image=self.images[straat['type']+'4']) 
         self.tk.update()
-        
-        
-        
-            
-        
-        
-                        
-                    
-        
 
 if __name__ == '__main__':
     tk = Tk()
