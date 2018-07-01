@@ -2,10 +2,11 @@ from tkinter import *
 import glob, time
 
 class veld:
-    def __init__(self, tk):
+    def __init__(self, tk, canvas):
         self.tk = tk
-        self.canvas = Canvas(self.tk, width=700, height=700)
-        self.canvas.pack()
+        #self.canvas = Canvas(self.tk, width=700, height=700)
+        #self.canvas.pack()
+        self.canvas = canvas
         self.tk.update()
         
         self.images = self.load_img()
@@ -141,7 +142,8 @@ class veld:
                     #j == 10
                     self.canvas.create_image(588, 37+i*55+(i//5), anchor=NW, \
                                         image=self.images[straat['type']+'4']) 
-        self.tk.update()
+        self.tk.update() 
+
 
 if __name__ == '__main__':
     tk = Tk()
@@ -149,8 +151,15 @@ if __name__ == '__main__':
     tk.update()
     tk.geometry('700x700+0+0')
     
-    veld(tk)
-    
-    
+    canvas = Canvas(tk, width=700, height=700)
+    canvas.pack()
+    a=veld(tk, canvas)
     time.sleep(5)
-    tk.destroy()
+    while True:
+        try:
+            tk.update()
+            tk.update_idletasks()
+            time.sleep(0.2)
+        except:
+            break
+    
