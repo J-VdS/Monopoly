@@ -2,7 +2,7 @@
 {'type':'straat', 'naam':'Rue Grande-Dinant', 'loc':(10,9), 'kleur':'#663300','prijs':60, 'huur':[], 'status':-1 }
 {'type':'alg', 'naam':'Algemeen Fonds', 'loc':(10,8)}
 {'type':'straat', 'naam':'Diestestraat-Leuven', 'loc':(10,7), 'kleur':'#663300', 'prijs':60, 'huur':[], 'status':-1}
-{'type':'belast', 'naam':'Inkomsten belasting', 'loc':(10,6),'prijs':60, 'huur':[], 'status':-1}
+{'type':'belast', 'naam':'Inkomsten belasting', 'loc':(10,6), 'afb':1}
 {'type':'station','naam':'Noord station', 'loc':(10,5)}
 {'type':'straat', 'naam':'Steenstraat-Brugge', 'loc':(10,4), 'kleur':'#CCFFFF', 'prijs':100, 'huur':[], 'status':-1}
 {'type':'kans', 'naam':'Kans', 'loc':(10,3), 'afb':1}
@@ -36,5 +36,5 @@
 {'type':'station', 'naam':'Zuid Station','loc':(5,10)}
 {'type':'kans', 'naam':'Kans','loc':(6,10), 'afb':4}
 {'type':'straat', 'naam':'Meir-Antwerpen','loc':(7,10), 'kleur':'#00008b'}
-{'type':'belast', 'naam':'Extra Belasting','loc':(8,10)}
+{'type':'belast', 'naam':'Extra Belasting','loc':(8,10), 'afb':4}
 {'type':'straat', 'naam':'Nieuwstraat Brussel','loc':(9,10),'kleur':'#00008b'}

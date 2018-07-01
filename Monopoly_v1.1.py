@@ -1,7 +1,7 @@
 from tkinter import *
 import time
 
-#from veld_v1.1 import veld
+import veld_v1
 
 
 def main():
@@ -11,7 +11,10 @@ def main():
     tk.resizable(0,0)    
 
     tk.update()
-
+    
+    veld_v1.veld(tk)
+    tk.update()
+    
     while True:
         try:
             tk.update()
