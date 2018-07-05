@@ -1,20 +1,20 @@
 {'type':'start','loc':(10,10)}
-{'type':'straat', 'naam':'Rue Grande-Dinant', 'loc':(10,9), 'kleur':'#663300','prijs':60, 'huur':[], 'status':-1 }
+{'type':'straat', 'naam':'Rue Grande-Dinant', 'loc':(10,9), 'kleur':'#663300','prijs':60, 'huurder':None }
 {'type':'alg', 'naam':'Algemeen Fonds', 'loc':(10,8)}
-{'type':'straat', 'naam':'Diestestraat-Leuven', 'loc':(10,7), 'kleur':'#663300', 'prijs':60, 'huur':[], 'status':-1}
+{'type':'straat', 'naam':'Diestestraat-Leuven', 'loc':(10,7), 'kleur':'#663300', 'prijs':60, 'huurder':None}
 {'type':'belast', 'naam':'Inkomsten belasting', 'loc':(10,6), 'afb':1}
-{'type':'station','naam':'Noord station', 'loc':(10,5)}
-{'type':'straat', 'naam':'Steenstraat-Brugge', 'loc':(10,4), 'kleur':'#CCFFFF', 'prijs':100, 'huur':[], 'status':-1}
+{'type':'station','naam':'Noord station', 'loc':(10,5), 'huurder':None, 'prijs':200}
+{'type':'straat', 'naam':'Steenstraat-Brugge', 'loc':(10,4), 'kleur':'#CCFFFF', 'prijs':100, 'huurder':None}
 {'type':'kans', 'naam':'Kans', 'loc':(10,3), 'afb':1}
-{'type':'straat', 'naam':'Place du Monument-Spa', 'loc':(10,2), 'kleur':'#CCFFFF','prijs':100}
-{'type':'straat', 'naam':'Kapellestraat-Oostende','loc':(10,1), 'kleur':'#CCFFFF'}
+{'type':'straat', 'naam':'Place du Monument-Spa', 'loc':(10,2), 'kleur':'#CCFFFF','prijs':100, 'huurder':None}
+{'type':'straat', 'naam':'Kapellestraat-Oostende','loc':(10,1), 'kleur':'#CCFFFF','prijs':120, 'huurder':None}
 {'type':'gevang', 'naam':'op bezoek', 'loc':(10,0)}
-{'type':'straat', 'naam':'Rue de Diekirch-Arlon','loc':(9,0), 'kleur':'#fc0fc0'}
-{'type':'centrale', 'naam':'Elektriciteitscentrale','loc':(8,0)}
-{'type':'straat', 'naam':'Bruul-Mechelen','loc':(7,0), 'kleur':'#fc0fc0'}
-{'type':'straat', 'naam':'Place Verte-Verviers','loc':(6,0), 'kleur':'#fc0fc0'}
-{'type':'station','naam':'Centraal station','loc':(5,0)}
-{'type':'straat', 'naam':'Lippenslaaan-Knokke','loc':(4,0), 'kleur':'#ff9900'}
+{'type':'straat', 'naam':'Rue de Diekirch-Arlon','loc':(9,0), 'kleur':'#fc0fc0','prijs':140, 'huurder':None}
+{'type':'centrale', 'naam':'Elektriciteitscentrale','loc':(8,0), 'prijs':150, 'huurder':None}
+{'type':'straat', 'naam':'Bruul-Mechelen','loc':(7,0), 'kleur':'#fc0fc0', 'prijs':140, 'huurder':None}
+{'type':'straat', 'naam':'Place Verte-Verviers','loc':(6,0), 'kleur':'#fc0fc0', 'prijs':160, 'huurder':None}
+{'type':'station','naam':'Centraal station','loc':(5,0), 'prijs':200, 'huurder':None}
+{'type':'straat', 'naam':'Lippenslaaan-Knokke','loc':(4,0), 'kleur':'#ff9900', 'prijs':180, 'huurder':None}
 {'type':'alg', 'naam':'Algemeen Fonds','loc':(3,0)}
 {'type':'straat', 'naam':'Rue Royale-Tournai','loc':(2,0), 'kleur':'#ff9900'}
 {'type':'straat', 'naam':'Groenplaats-Antwerpen','loc':(1,0), 'kleur':'#ff9900'}
