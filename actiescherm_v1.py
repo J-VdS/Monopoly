@@ -8,14 +8,12 @@ Created on Mon Jul  2 16:29:03 2018
 from tkinter import *
 import speler_v1
 
+
 class acties:
     def __init__(self, tk, canvas, commutxt):
         #uit argumenten
         self.tk, self.canvas = tk, canvas
         self.commutxt = commutxt
-        
-        
-        
         
         self.knoppen = {0:[[],[],[]], 1:[[],[]], 2:[[],[]], 3:[[],[]], 4:[[],[]]}
         self.state = 0
@@ -29,7 +27,7 @@ class acties:
         
         
         self.speler = None
-        self.alle_spelers = []        
+        self.alle_spelers = [] 
         
         self.canvas.bind_all('<Button-1>', self.clicked)
         
@@ -170,9 +168,11 @@ class acties:
         print(self.aantal)
     
     def start(self):
+        
         #voorlopig hier moet nog een naam systeem komen en mooie UI
         with open(self.commutxt, 'w') as outfile:
-            outfile.write('aantal = %s' %(self.aantal))
+            outfile.write('Done'+'\n')
+            outfile.write(str(self.aantal))
         del self.aantal
         self.switch_state(1)
         
@@ -181,17 +181,27 @@ class acties:
         return self.alle_spelers
     
     def set_player(self, player):
-        self.player = player
+        print(player)
+        self.speler = player
+        self.dubbel = True
         
-        return    
+        #commu.txt voorbereiden
+        with open(self.commutxt, 'w') as outfile:
+            outfile.write('player: %s' %(str(self.speler))+'\n')
+    
     def volgende(self):
-        pass
-    
-    
-    
-    
-
-
+        print(self.speler)
+        if self.speler == None:
+            return
+        elif self.dubbel:
+            (aantal, self.dubbel) = self.speler.worp()
+            self.speler.move(aantal)
+        
+        else:
+            with open(self.commutxt, 'a') as outfile:
+                outfile.write('Done'+'\n')
+        return             
+        
 
 if __name__ == '__main__':
     import time

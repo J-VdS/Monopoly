@@ -7,6 +7,7 @@ class monopoly:
         self.commu = 'communicatie.txt'
         self.windows = []
         self.canvas = []
+        self.spelers = []
         
         #schermpjes
         self.veld = None #wordt gemaakt in speelveldfunctie
@@ -19,10 +20,7 @@ class monopoly:
             outfile.write('initialisatie')
         
         self.get_info()
-        
-        #info spelers
-        self.spelers = []
-        
+        self.start_game()
         
         #self.main()
     
@@ -77,6 +75,30 @@ class monopoly:
             if not self.standaard():
                 return
         
+        #exec(data[1]) vreemd maar werkt niet, ik krijg standaard 1
+        #voorlopig normaal krijg ik namen
+        for i in range(int(data[1])):
+            self.spelers.append(speler_v1.speler(self.windows[0], self.canvas[0], \
+                            i, naam='speler %s' %(i+1)))
+        return
+        
+    def start_game(self):
+        num = 0
+        running = True
+        
+        while running:
+            self.actiescherm.set_player(self.spelers[num])
+            
+            while True:
+                with open(self.commu, 'r') as infile:
+                    data = [i.strip() for i in infile.readlines()]
+                if 'Done' in data:
+                    break
+                if not self.standaard():
+                    return
+            print('okay')
+            num = (num+1)%len(self.spelers)
+            
         
         
         
@@ -98,7 +120,7 @@ class monopoly:
             for i in range(3):
                 self.windows[i].update()
                 self.windows[i].update_idletasks()
-                time.sleep(0.3)
+                time.sleep(0.25)
         except :
             self.windows[(i+1)%3].destroy()
             self.windows[(i+2)%3].destroy()

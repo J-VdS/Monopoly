@@ -58,28 +58,28 @@ class veld:
         #tekent de img's
         if (i,j) == (0,0):
             self.canvas.create_image(10, 10, image=self.images['pot'], \
-                                     anchor=NW)
+                                     anchor='nw')
         elif (i, j) == (0,5):
             self.canvas.create_image(92+4*55, 10, image=self.images['station3'], \
-                                     anchor=NW)
+                                     anchor='nw')
         elif (i, j) == (0,10):
             self.canvas.create_image(148+8*55, 10, image=self.images['gotojail'], \
-                                     anchor=NW)
+                                     anchor='nw')
         elif (i, j) == (5,0):
             self.canvas.create_image(10, 92+4*55, image=self.images['station2'], \
-                                     anchor=NW)
+                                     anchor='nw')
         elif (i, j) == (5,10):
             self.canvas.create_image(148+8*55, 92+4*55, image=self.images['station4'], \
-                                     anchor=NW)
+                                     anchor='nw')
         elif (i, j) == (10,0): 
             self.canvas.create_image(10, 148+8*55, image=self.images['jail'], \
-                                     anchor=NW)
+                                     anchor='nw')
         elif (i, j) == (10,5): 
             self.canvas.create_image(92+4*55, 148+8*55, image=self.images['station1'], \
-                                     anchor=NW)
+                                     anchor='nw')
         elif (i, j) == (10,10):
             self.canvas.create_image(148+8*55, 148+8*55, image=self.images['start'], \
-                                     anchor=NW)
+                                     anchor='nw')
         #tekent de vakjes rond de img's
         if i%10 == 0 and j%10 == 0:
             self.canvas.create_rectangle(10+(j//10)*(138+8*55), 10+(i//10)*(138+8*55),\
@@ -106,7 +106,7 @@ class veld:
             (i,j) = straat['loc']
             if straat['type'] == 'straat':
             
-                #todo herleid de 4 if statements naar 2 
+                #todo herleid de 4 if statements naar 2
                 if i == 0:
                     self.canvas.create_rectangle(37+j*55+(j//5), 72,\
                                                  92+j*55+(j//5), 92, \
@@ -130,17 +130,17 @@ class veld:
                 #tekent kans afb
                 #Todo in 1 lijn mogelijk
                 if i == 0:
-                    self.canvas.create_image(37+j*55+(j//5), 10, anchor=NW, \
+                    self.canvas.create_image(37+j*55+(j//5), 10, anchor='nw', \
                                         image=self.images[straat['type']+'3'])
                 elif i == 10:
-                    self.canvas.create_image(37+j*55+(j//5), 588, anchor=NW, \
+                    self.canvas.create_image(37+j*55+(j//5), 588, anchor='nw', \
                                         image=self.images[straat['type']+'1'])
                 elif j == 0:
-                    self.canvas.create_image(10, 37+i*55+(i//5), anchor=NW, \
+                    self.canvas.create_image(10, 37+i*55+(i//5), anchor='nw', \
                                         image=self.images[straat['type']+'2'])
                 else:
                     #j == 10
-                    self.canvas.create_image(588, 37+i*55+(i//5), anchor=NW, \
+                    self.canvas.create_image(588, 37+i*55+(i//5), anchor='nw', \
                                         image=self.images[straat['type']+'4']) 
         self.tk.update() 
 

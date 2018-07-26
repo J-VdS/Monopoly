@@ -13,8 +13,9 @@ class speler:
     zorgt voor alle standaard functies en constantes die een speler nodig heeft
     
     '''
-    def __init__(self, tk, canvas, num):
+    def __init__(self, tk, canvas, num, naam='speler'):
         #standaard locaties
+        
         loc = [(618,618), (648, 618),(618, 648), (648, 648) ][num]
         self.tk, self.canvas = tk, canvas
         self.vakje = 0
@@ -22,10 +23,12 @@ class speler:
         self.vx = -55
         self.vy = 0
 
-        r = 5
+        r = 10
         self.id = self.canvas.create_oval(loc[0], loc[1], loc[0]+2*r, loc[1]+2*r, \
                                           fill='#0000ab')
+        self.tk.update()
         #------------------
+        self.naam = naam #max 10 tekens
         self.cash = 1500
         self.eigendommen = {} #or a list
         
@@ -33,6 +36,7 @@ class speler:
         
         
     def worp(self):
+        print('gegooid')
         (a, b) = (random.randint(1,6), random.randint(1,6))
         print(a, b)
         if a == b:
@@ -40,10 +44,12 @@ class speler:
         return a+b, False
     
     def move(self, n):
+        print('start moving')
         direc = [(-55, 0), (0, -55), (55, 0), (0, 55)]
         for i in range(n):
             self.vakje = (self.vakje+1)%40
             if self.vakje % 10 == 0:
+                
                 self.canvas.move(self.id, (self.vx//55)*82, (self.vy//55)*82)
                 self.vindex = (self.vindex+1)%4
                 (self.vx, self.vy) = direc[self.vindex]
@@ -52,7 +58,29 @@ class speler:
                 self.canvas.move(self.id, (self.vx//55)*56, (self.vy//55)*56)
             else:
                 self.canvas.move(self.id, self.vx, self.vy)
+            time.sleep(0.3)
+            self.tk.update()
                 
         return self.vakje
+    
+    def __str__(self):
+        return  str(self.naam)+' '*(10-len(self.naam))+str(self.cash)
+    
+    def __iadd__(self, other):
+        #other moet een int zijn
+        self.cash += other
+        return self
+    def __isub__(self, other):
+        self.cash -= other
+        
+    def __lshift(self, other):
+        # <<
+        pass
+    
+    def __rshift(self, other):
+        pass
+    
+        
+    
     
 ''' Standaard locaties 1: [(618, 618)]  '''  
