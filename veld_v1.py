@@ -11,7 +11,10 @@ class veld:
         
         self.images = self.load_img()
         self.vakjes()
-        self.straten()
+        self.info = self.straten()
+        
+        self.text = self.canvas.create_text(10, self.canvas.winfo_height()-5, 
+                                anchor='sw', text='')
         
         self.tk.update()
         
@@ -46,11 +49,7 @@ class veld:
                     #j == 10
                     self.canvas.create_rectangle(588, 37+i*55+(i//5),\
                                                  670, 92+i*55+(i//5))
-                    
-                
-                    
-            
-                
+     
         self.tk.update()
     
     
@@ -141,8 +140,14 @@ class veld:
                 else:
                     #j == 10
                     self.canvas.create_image(588, 37+i*55+(i//5), anchor='nw', \
-                                        image=self.images[straat['type']+'4']) 
+                                        image=self.images[straat['type']+'4'])
         self.tk.update() 
+        return straatinfo
+        
+    def __matmul__(self, loc):
+        self.canvas.itemconfig(self.text, text=self.info[loc]['naam'])
+        self.tk.update()
+        
 
 
 if __name__ == '__main__':

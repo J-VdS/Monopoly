@@ -9,6 +9,7 @@ from tkinter import *
 import time, random
 
 class speler:
+    straten = {'#663300':2, '#00008b':2 } #enige twee met andere
     '''
     zorgt voor alle standaard functies en constantes die een speler nodig heeft
     
@@ -16,7 +17,8 @@ class speler:
     def __init__(self, tk, canvas, num, naam='speler'):
         #standaard locaties
         
-        loc = [(618,618), (648, 618),(618, 648), (648, 648) ][num]
+        loc = [(593,613), (618, 613),(593, 638), (618, 638) ][num]
+        self.kleur = ['#0015ab', '#12ab12', 'yellow', '#ab0000'][num]
         self.tk, self.canvas = tk, canvas
         self.vakje = 0
         self.vindex = 0
@@ -25,7 +27,7 @@ class speler:
 
         r = 10
         self.id = self.canvas.create_oval(loc[0], loc[1], loc[0]+2*r, loc[1]+2*r, \
-                                          fill='#0000ab')
+                                          fill=self.kleur)
         self.tk.update()
         #------------------
         self.naam = naam #max 10 tekens
@@ -49,8 +51,9 @@ class speler:
         for i in range(n):
             self.vakje = (self.vakje+1)%40
             if self.vakje % 10 == 0:
+                direc_10 = [(-75, -20), (20,-75), (75,20), (-20,75)]
                 
-                self.canvas.move(self.id, (self.vx//55)*82, (self.vy//55)*82)
+                self.canvas.move(self.id, direc_10[self.vindex][0], direc_10[self.vindex][1])
                 self.vindex = (self.vindex+1)%4
                 (self.vx, self.vy) = direc[self.vindex]
                 
@@ -72,13 +75,22 @@ class speler:
         return self
     def __isub__(self, other):
         self.cash -= other
-        
-    def __lshift(self, other):
-        # <<
-        pass
+        return self
     
-    def __rshift(self, other):
-        pass
+
+    #nodig voor ruilen    
+    def __lshift__(self, other):
+        # <<
+        if other['kleur'] in self.eigendommen:
+            self.eigendommen[other['kleur']].append(other)
+        else:
+            
+            self.eigendommen[other['kleur']] = [other]
+        return self
+    
+    def __rshift__(self, other):
+        # >>
+        return self
     
         
     

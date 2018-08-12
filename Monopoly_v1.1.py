@@ -4,6 +4,7 @@ import time, veld_v1, speler_v1, actiescherm_v1
 
 class monopoly:
     def __init__(self):
+        #self.straattxt = 'straten.txt'
         self.commu = 'communicatie.txt'
         self.windows = []
         self.canvas = []
@@ -18,6 +19,9 @@ class monopoly:
         #communicatie document
         with open(self.commu, 'w') as outfile:
             outfile.write('initialisatie')
+        
+        #with open(self.straattxt, 'r') as infile:
+        #    self.straatinfo = [eval(line) for line in [i.strip() for i in infile.readlines()]]
         
         self.get_info()
         self.start_game()
@@ -66,7 +70,7 @@ class monopoly:
         self.canvas.append(canvas3)
         
     def get_info(self):
-        
+        #krijgt info van actiescherm via txt
         while True:
             with open(self.commu, 'r') as infile:
                 data = [i.strip() for i in infile.readlines()]
@@ -76,7 +80,7 @@ class monopoly:
                 return
         
         #exec(data[1]) vreemd maar werkt niet, ik krijg standaard 1
-        #voorlopig normaal krijg ik namen
+        #voorlopig, normaal krijg ik namen
         for i in range(int(data[1])):
             self.spelers.append(speler_v1.speler(self.windows[0], self.canvas[0], \
                             i, naam='speler %s' %(i+1)))
@@ -99,20 +103,6 @@ class monopoly:
             print('okay')
             num = (num+1)%len(self.spelers)
             
-        
-        
-        
-            
-            
-                
-
-
-
-
-
-
-
-
 
     
     def standaard(self):
@@ -120,7 +110,7 @@ class monopoly:
             for i in range(3):
                 self.windows[i].update()
                 self.windows[i].update_idletasks()
-                time.sleep(0.25)
+            time.sleep(0.25)
         except :
             self.windows[(i+1)%3].destroy()
             self.windows[(i+2)%3].destroy()
